@@ -1,0 +1,29 @@
+[user]
+[core]
+	excludesfile = /Users/ehlxr/.gitignore_global
+	autocrlf = input
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/araxisgitmerge-w.sh \"$REMOTE\" \"$BASE\" \"$LOCAL\" \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/ehlxr/.stCommitMsg
+[user]
+	name = ehlxr
+	email = ehlxr.me@gmail.com
+[alias]
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	st = status
+	ad = add .
+	cm = commit -m
+	pl = pull
+	ps = push
+	co = checkout
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

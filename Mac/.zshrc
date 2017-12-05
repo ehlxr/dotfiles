@@ -28,9 +28,9 @@ export ZSH=/Users/ehlxr/.oh-my-zsh
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="ys"
 # ZSH_THEME="agnoster"
-# ZSH_THEME="ehlxr"
-ZSH_THEME="powerlevel9k/powerlevel9k"
-source ~/.powerlevel9k
+ZSH_THEME="ehlxr"
+# ZSH_THEME="powerlevel9k/powerlevel9k"
+# source ~/.powerlevel9k
 
 plugins=(git wd autojump sublime sudo zsh-syntax-highlighting zsh-autosuggestions extract history-substring-search)
 
@@ -46,8 +46,7 @@ prompt_context(){}
 
 # alias h="hexo cl && hexo g && gulp && hexo d && git push origin"
 alias h="hexo cl && hexo g && gulp && hexo d"
-alias gacp='git add --all && git commit -v && git push'
-alias gacpm='git add --all && git commit -m "update" && git push'
+alias gacp='git add --all && git commit -m "站点更新：$(date +%Y-%m-%d) $(date +%T)" && git push'
 alias js='j --stat'
 alias vsc='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code';
 alias o='open .'
@@ -63,11 +62,19 @@ alias dp='docker ps -a'
 alias vg='vagrant'
 alias t='tmux'
 alias e='exa -bghHliSa'
+alias gbk='gitbook'
 # etcd API 版本
 export ETCDCTL_API=3
 
 # source ~/.bash_profile
 
+function lazygit() {
+    git add .
+    git commit -a -m "$1"
+    git push
+}
+
+alias gacpm=lazygit
 
 function proxy_off(){
     unset http_proxy
@@ -81,3 +88,6 @@ function proxy_on() {
 }
 
 export CERES_REGISTER_TOKEN=/Users/ehlxr/works/ns.token
+
+# 打开可跨域的 chrome 浏览器
+alias ccd='open -n /Applications/Google\ Chrome.app/ --args --disable-web-security  --user-data-dir=/Users/ehlxr/MyChromeDevUserData/'

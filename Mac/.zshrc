@@ -4,7 +4,7 @@ export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=/Users/ehlxr/WorkSpaces/Go
 export GOBIN=$GOPATH/bin
 
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH=$PATH:$GOBIN
 export PATH=$PATH:/Users/ehlxr/.gem/bin
 export PATH=$PATH:/Users/ehlxr/works/bin
@@ -13,6 +13,7 @@ export JAVA_6_HOME=$(/usr/libexec/java_home -v 1.6)
 export JAVA_7_HOME=$(/usr/libexec/java_home -v 1.7)
 export JAVA_8_HOME=$(/usr/libexec/java_home -v 1.8)
 export JAVA_9_HOME=$(/usr/libexec/java_home -v 9)
+export JAVA_10_HOME=$(/usr/libexec/java_home -v 10)
 
 # 默认 JDK 8
 export JAVA_HOME=$JAVA_8_HOME
@@ -22,6 +23,7 @@ alias jdk6="export JAVA_HOME=$JAVA_6_HOME"
 alias jdk7="export JAVA_HOME=$JAVA_7_HOME"
 alias jdk8="export JAVA_HOME=$JAVA_8_HOME"
 alias jdk9="export JAVA_HOME=$JAVA_9_HOME"
+alias jdk10="export JAVA_HOME=$JAVA_10_HOME"
 
 export ZSH=/Users/ehlxr/.oh-my-zsh
 
@@ -32,7 +34,8 @@ ZSH_THEME="ehlxr"
 # ZSH_THEME="powerlevel9k/powerlevel9k"
 # source ~/.powerlevel9k
 
-plugins=(git wd autojump sublime sudo zsh-syntax-highlighting zsh-autosuggestions extract history-substring-search)
+# plugins=(git wd autojump sublime sudo zsh-syntax-highlighting zsh-autosuggestions extract history-substring-search docker docker-compose docker-machine)
+plugins=(git wd sudo zsh-syntax-highlighting zsh-autosuggestions history-substring-search docker docker-compose docker-machine git-flow-completion)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -59,10 +62,13 @@ alias brc='brew cask'
 alias bl='brew list'
 alias di='docker images'
 alias dp='docker ps -a'
+alias dm='docker-machine'
 alias vg='vagrant'
 alias t='tmux'
 alias e='exa -bghHliSa'
 alias gbk='gitbook'
+unalias grv
+
 # etcd API 版本
 export ETCDCTL_API=3
 
@@ -76,18 +82,26 @@ function lazygit() {
 
 alias gacpm=lazygit
 
-function proxy_off(){
+function pf(){
     unset http_proxy
     unset https_proxy
+
+    unset all_proxy
+
     echo -e "已关闭代理"
 }
-function proxy_on() {
+function po() {
     export http_proxy="http://127.0.0.1:1087"
     export https_proxy=$http_proxy
+
+    export all_proxy=socks5://127.0.0.1:1086
+
     echo -e "已开启代理"
 }
 
-export CERES_REGISTER_TOKEN=/Users/ehlxr/works/ns.token
+# export CERES_REGISTER_TOKEN=/Users/ehlxr/works/ns.token
+export CERES_REGISTER_TOKEN=/Users/ehlxr/WorkSpaces/Go/src/ehlxr.me/jwt/b.token
+export SERVICE_ACCOUNT_TOKEN_PATH=/Users/ehlxr/WorkSpaces/Go/src/ehlxr.me/jwt/b.token
 
 # 打开可跨域的 chrome 浏览器
-alias ccd='open -n /Applications/Google\ Chrome.app/ --args --disable-web-security  --user-data-dir=/Users/ehlxr/MyChromeDevUserData/'
+alias ccd='open -n /Applications/Google\ Chrome.app/ --args --disable-web-security  --user-data-dir=/Users/ehlxr/.MyChromeDevUserData/'

@@ -48,4 +48,4 @@ ${git_info}\
 %{$fg[white]%}[%*]\
 ${root_symbols}${bg_symbols}\
 %(?,%{$fg[green]%}, %{$fg[red]%})
-$ %{$reset_color%}"
+➜ %{$reset_color%}"

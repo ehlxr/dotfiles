@@ -8,6 +8,7 @@ export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH=$PATH:$GOBIN
 export PATH=$PATH:/Users/ehlxr/.gem/bin
 export PATH=$PATH:/Users/ehlxr/works/bin
+export PATH=$PATH:/Users/ehlxr/.cargo/bin
 
 export JAVA_6_HOME=$(/usr/libexec/java_home -v 1.6)
 export JAVA_7_HOME=$(/usr/libexec/java_home -v 1.7)
@@ -30,7 +31,7 @@ export ZSH=/Users/ehlxr/.oh-my-zsh
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="ys"
 # ZSH_THEME="agnoster"
-ZSH_THEME="ehlxr"
+ZSH_THEME="ehlxr2"
 # ZSH_THEME="powerlevel9k/powerlevel9k"
 # source ~/.powerlevel9k
 
@@ -74,13 +75,13 @@ export ETCDCTL_API=3
 
 # source ~/.bash_profile
 
-function lazygit() {
+function gacpm() {
     git add .
     git commit -a -m "$1"
     git push
 }
 
-alias gacpm=lazygit
+# alias gacpm=lazygit
 
 function pf(){
     unset http_proxy
@@ -104,4 +105,20 @@ export CERES_REGISTER_TOKEN=/Users/ehlxr/WorkSpaces/Go/src/ehlxr.me/jwt/b.token
 export SERVICE_ACCOUNT_TOKEN_PATH=/Users/ehlxr/WorkSpaces/Go/src/ehlxr.me/jwt/b.token
 
 # 打开可跨域的 chrome 浏览器
-alias ccd='open -n /Applications/Google\ Chrome.app/ --args --disable-web-security  --user-data-dir=/Users/ehlxr/.MyChromeDevUserData/'
+alias ccd='open -n /Applications/Google\ Chrome.app/ --args --disable-web-security  --user-data-dir=/Users/ehlxr/.MyChromeDevUserData/'export PATH="/usr/local/opt/mongodb@3.6/bin:$PATH"
+export PATH="/usr/local/opt/mongodb@3.6/bin:$PATH"
+
+# QT
+export PATH="/usr/local/opt/qt/bin:$PATH"
+export QT_DIR=/usr/local/Cellar/qt/5.11.2
+export LDFLAGS="-L/usr/local/opt/qt/lib"
+export CPPFLAGS="-I/usr/local/opt/qt/include"
+export PKG_CONFIG_PATH="/usr/local/opt/qt/lib/pkgconfig"export PATH="/usr/local/opt/sqlite/bin:$PATH"
+alias git='LANG=en_GB git'
+
+
+transfer() {
+    curl --progress-bar --upload-file "$1" https://transfer.sh/$(basename $1) | tee /dev/null;
+}
+
+alias tsf=transfer

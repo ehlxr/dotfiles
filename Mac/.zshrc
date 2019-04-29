@@ -9,8 +9,9 @@ export PATH=$PATH:$GOBIN
 export PATH=$PATH:/Users/ehlxr/.gem/bin
 export PATH=$PATH:/Users/ehlxr/works/bin
 export PATH=$PATH:/Users/ehlxr/.cargo/bin
+export PATH=$PATH:/Users/ehlxr/works/jmeter/bin
 
-export JAVA_6_HOME=$(/usr/libexec/java_home -v 1.6)
+# export JAVA_6_HOME=$(/usr/libexec/java_home -v 1.6)
 export JAVA_7_HOME=$(/usr/libexec/java_home -v 1.7)
 export JAVA_8_HOME=$(/usr/libexec/java_home -v 1.8)
 export JAVA_9_HOME=$(/usr/libexec/java_home -v 9)
@@ -20,7 +21,7 @@ export JAVA_10_HOME=$(/usr/libexec/java_home -v 10)
 export JAVA_HOME=$JAVA_8_HOME
 
 # alias 命令动态切换 JDK 版本
-alias jdk6="export JAVA_HOME=$JAVA_6_HOME"
+# alias jdk6="export JAVA_HOME=$JAVA_6_HOME"
 alias jdk7="export JAVA_HOME=$JAVA_7_HOME"
 alias jdk8="export JAVA_HOME=$JAVA_8_HOME"
 alias jdk9="export JAVA_HOME=$JAVA_9_HOME"
@@ -31,7 +32,7 @@ export ZSH=/Users/ehlxr/.oh-my-zsh
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="ys"
 # ZSH_THEME="agnoster"
-ZSH_THEME="ehlxr2"
+ZSH_THEME="ehlxr"
 # ZSH_THEME="powerlevel9k/powerlevel9k"
 # source ~/.powerlevel9k
 
@@ -81,6 +82,14 @@ function gacpm() {
     git push
 }
 
+function lsofp(){
+    lsof -p "$1" -nP | grep LISTEN
+}
+
+function lsofi(){
+    lsof -i:"$1" -nP | grep LISTEN
+}
+
 # alias gacpm=lazygit
 
 function pf(){
@@ -122,3 +131,26 @@ transfer() {
 }
 
 alias tsf=transfer
+
+unalias gg
+
+alias gg="go get -v -u $1"
+
+# export GOPROXY=https://goproxy.io
+# export GOPROXY=https://mod.gokit.info
+# export GOPROXY=https://mod.ehlxr.me
+
+
+function etcdkeeper(){
+    cd ~/works/etcdkeeper/ && ./etcdkeeper $@
+}
+
+function kafka-manager(){
+    echo http://localhost:9000
+    cd ~/WorkSpaces/kafka-manager/target/universal/kafka-manager-1.3.3.23 &&  ./bin/kafka-manager
+}
+
+function zkui(){
+    echo http://localhost:9090
+    cd ~/WorkSpaces/zkui/target && java -jar zkui-2.0-SNAPSHOT-jar-with-dependencies.jar
+}

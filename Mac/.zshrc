@@ -13,9 +13,12 @@ export PATH=$PATH:/Users/ehlxr/works/jmeter/bin
 
 # export JAVA_6_HOME=$(/usr/libexec/java_home -v 1.6)
 export JAVA_7_HOME=$(/usr/libexec/java_home -v 1.7)
-export JAVA_8_HOME=$(/usr/libexec/java_home -v 1.8)
+export JAVA_8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home
 export JAVA_9_HOME=$(/usr/libexec/java_home -v 9)
 export JAVA_10_HOME=$(/usr/libexec/java_home -v 10)
+# OpenJDK
+export OPENJDK_8_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+export OPENJDK_12_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-12.0.1.jdk/Contents/Home
 
 # 默认 JDK 8
 export JAVA_HOME=$JAVA_8_HOME
@@ -26,6 +29,8 @@ alias jdk7="export JAVA_HOME=$JAVA_7_HOME"
 alias jdk8="export JAVA_HOME=$JAVA_8_HOME"
 alias jdk9="export JAVA_HOME=$JAVA_9_HOME"
 alias jdk10="export JAVA_HOME=$JAVA_10_HOME"
+alias openjdk8="export JAVA_HOME=$OPENJDK_8_HOME"
+alias openjdk12="export JAVA_HOME=$OPENJDK_12_HOME"
 
 export ZSH=/Users/ehlxr/.oh-my-zsh
 
@@ -51,7 +56,7 @@ prompt_context(){}
 
 # alias h="hexo cl && hexo g && gulp && hexo d && git push origin"
 alias h="hexo cl && hexo g && gulp && hexo d"
-alias gacp='git add --all && git commit -m "站点更新：$(date +%Y-%m-%d) $(date +%T)" && git push'
+alias gacp='git add --all && git commit -m "update at $(date +%Y-%m-%d) $(date +%T) by ehlxr" && git push'
 alias js='j --stat'
 alias vsc='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code';
 alias o='open .'
@@ -69,7 +74,7 @@ alias vg='vagrant'
 alias t='tmux'
 alias e='exa -bghHliSa'
 alias gbk='gitbook'
-unalias grv
+# unalias grv
 
 # etcd API 版本
 export ETCDCTL_API=3
@@ -133,13 +138,18 @@ transfer() {
 alias tsf=transfer
 
 unalias gg
+# unalias ggf
 
 alias gg="go get -v -u $1"
+alias ggf="GO111MODULE=off go get -v -u $1"
 
+export GO111MODULE=on
 # export GOPROXY=https://goproxy.io
 # export GOPROXY=https://mod.gokit.info
-# export GOPROXY=https://mod.ehlxr.me
-
+# export GOPROXY=https://goproxy.ehlxr.top,direct
+# export GOPROXY=https://gocenter.io
+export GOPROXY=https://goproxy.cn,direct
+# export GOPROXY=https://mirrors.aliyun.com/goproxy,direct
 
 function etcdkeeper(){
     cd ~/works/etcdkeeper/ && ./etcdkeeper $@
@@ -154,3 +164,8 @@ function zkui(){
     echo http://localhost:9090
     cd ~/WorkSpaces/zkui/target && java -jar zkui-2.0-SNAPSHOT-jar-with-dependencies.jar
 }
+
+alias rg='rg --no-heading'
+alias rgf='rg --no-heading --files -g'
+
+export GITHUB_RELEASE_TOKEN='485bf276647e3993f34a7662e7b49cf47fffd691'

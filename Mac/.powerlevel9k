@@ -1,4 +1,5 @@
 POWERLEVEL9K_MODE='nerdfont-complete'
+# https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts
 # Hack Nerd Font
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 # POWERLEVEL9K_PROMPT_ADD_NEWLINE=true

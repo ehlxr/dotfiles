@@ -2,29 +2,51 @@
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <localRepository/>
+    <interactiveMode/>
+    <usePluginRegistry/>
+    <offline/>
+    <pluginGroups/>
+    <servers/>
+
     <mirrors>
-        <!-- 阿里云仓库 -->
         <mirror>
-            <id>alimaven</id>
-            <mirrorOf>central</mirrorOf>
-            <name>aliyun maven</name>
-            <url>http://maven.aliyun.com/nexus/content/repositories/central/</url>
+            <id>aliyunmaven</id>
+            <mirrorOf>*</mirrorOf>
+            <name>public</name>
+            <url>https://maven.aliyun.com/repository/public</url>
         </mirror>
-    
-        <!-- 中央仓库1 -->
+
         <mirror>
-            <id>repo1</id>
-            <mirrorOf>central</mirrorOf>
-            <name>Human Readable Name for this Mirror.</name>
-            <url>http://repo1.maven.org/maven2/</url>
-        </mirror>
-    
-        <!-- 中央仓库2 -->
+            <id>aliyunmaven</id>
+            <mirrorOf>*</mirrorOf>
+            <name>google</name>
+            <url>https://maven.aliyun.com/repository/google</url>
+            </mirror>
         <mirror>
-            <id>repo2</id>
-            <mirrorOf>central</mirrorOf>
-            <name>Human Readable Name for this Mirror.</name>
-            <url>http://repo2.maven.org/maven2/</url>
+
+        <id>aliyunmaven</id>
+            <mirrorOf>*</mirrorOf>
+            <name>apache</name>
+            <url>https://maven.aliyun.com/repository/apache-snapshots</url>
+            </mirror>
+        <mirror>
+
+        <id>aliyunmaven</id>
+            <mirrorOf>*</mirrorOf>
+            <name>spring</name>
+            <url>https://maven.aliyun.com/repository/spring</url>
+            </mirror>
+        <mirror>
+
+        <id>aliyunmaven</id>
+            <mirrorOf>*</mirrorOf>
+            <name>spring-plugin</name>
+            <url>https://maven.aliyun.com/repository/spring-plugin</url>
         </mirror>
-    </mirrors> 
+    </mirrors>
+
+    <proxies/>
+    <profiles/>
+    <activeProfiles/>
 </settings>

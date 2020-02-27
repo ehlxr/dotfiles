@@ -37,8 +37,10 @@ export ZSH=/Users/ehlxr/.oh-my-zsh
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="ys"
 # ZSH_THEME="agnoster"
-ZSH_THEME="ehlxr"
-# ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="typewritten/typewritten"
+# TYPEWRITTEN_MULTILINE=true
+
+# ZSH_THEME="powerlevel10k/powerlevel10k"
 # source ~/.powerlevel9k
 
 # plugins=(git wd autojump sublime sudo zsh-syntax-highlighting zsh-autosuggestions extract history-substring-search docker docker-compose docker-machine)
@@ -47,7 +49,7 @@ plugins=(git wd sudo zsh-syntax-highlighting zsh-autosuggestions history-substri
 source $ZSH/oh-my-zsh.sh
 
 # set agnoster the “user@hostname” info
-prompt_context(){}
+# prompt_context(){}
 # prompt_context() {
 #   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
 #     prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
@@ -114,22 +116,16 @@ function po() {
     echo -e "已开启代理"
 }
 
-# export CERES_REGISTER_TOKEN=/Users/ehlxr/works/ns.token
-export CERES_REGISTER_TOKEN=/Users/ehlxr/WorkSpaces/Go/src/ehlxr.me/jwt/b.token
-export SERVICE_ACCOUNT_TOKEN_PATH=/Users/ehlxr/WorkSpaces/Go/src/ehlxr.me/jwt/b.token
-
 # 打开可跨域的 chrome 浏览器
 alias ccd='open -n /Applications/Google\ Chrome.app/ --args --disable-web-security  --user-data-dir=/Users/ehlxr/.MyChromeDevUserData/'export PATH="/usr/local/opt/mongodb@3.6/bin:$PATH"
-export PATH="/usr/local/opt/mongodb@3.6/bin:$PATH"
+alias git='LANG=en_GB git'
 
 # QT
 export PATH="/usr/local/opt/qt/bin:$PATH"
-export QT_DIR=/usr/local/Cellar/qt/5.11.2
+export QT_DIR=/usr/local/Cellar/qt/5.14.0
 export LDFLAGS="-L/usr/local/opt/qt/lib"
 export CPPFLAGS="-I/usr/local/opt/qt/include"
-export PKG_CONFIG_PATH="/usr/local/opt/qt/lib/pkgconfig"export PATH="/usr/local/opt/sqlite/bin:$PATH"
-alias git='LANG=en_GB git'
-
+export PKG_CONFIG_PATH="/usr/local/opt/qt/lib/pkgconfig"
 
 transfer() {
     curl --progress-bar --upload-file "$1" https://transfer.sh/$(basename $1) | tee /dev/null;
@@ -138,7 +134,6 @@ transfer() {
 alias tsf=transfer
 
 unalias gg
-# unalias ggf
 
 alias gg="go get -v -u $1"
 alias ggf="GO111MODULE=off go get -v -u $1"
@@ -151,8 +146,9 @@ export GO111MODULE=on
 export GOPROXY=https://goproxy.cn,direct
 # export GOPROXY=https://mirrors.aliyun.com/goproxy,direct
 
+
 function etcdkeeper(){
-    cd ~/works/etcdkeeper/ && ./etcdkeeper $@
+    cd /usr/local/opt/etcdkeeper/ && ./etcdkeeper $@
 }
 
 function kafka-manager(){
@@ -163,6 +159,10 @@ function kafka-manager(){
 function zkui(){
     echo http://localhost:9090
     cd ~/WorkSpaces/zkui/target && java -jar zkui-2.0-SNAPSHOT-jar-with-dependencies.jar
+}
+
+function phoenix(){
+    cd /usr/local/opt/apache-phoenix-4.15.0-HBase-1.3/bin && ./sqlline.py localhost:2181
 }
 
 alias rg='rg --no-heading'

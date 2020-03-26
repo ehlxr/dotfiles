@@ -163,9 +163,9 @@
                 </repository>
             </repositories>
             <!-- 插件的远程仓库列表。和 repositories 类似，repositories 管理 jar 包依赖的仓库，pluginRepositories 则是管理插件的仓库 -->
-            <pluginRepositories>
+            <!-- <pluginRepositories> -->
                 <!-- 每个 pluginRepository 元素指定一个 maven 可以用来寻找新插件的远程地址 -->
-                <pluginRepository>
+                <!-- <pluginRepository>
                     <id/>
                     <name/>
                     <releases>
@@ -180,8 +180,8 @@
                     </snapshots>
                     <url/>
                     <layout/>
-                </pluginRepository>
-            </pluginRepositories>
+                </pluginRepository> -->
+            <!-- </pluginRepositories> -->
         </profile>
     </profiles>
 

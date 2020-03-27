@@ -165,7 +165,19 @@ function phoenix(){
     cd /usr/local/opt/apache-phoenix-4.15.0-HBase-1.3/bin && ./sqlline.py localhost:2181
 }
 
+function zkvs(){
+    cd ~/WorkSpaces/zookeeper-visualizer/target && java -jar zookeeper-visualizer-jar-with-dependencies.jar
+}
+
 alias rg='rg --no-heading'
 alias rgf='rg --no-heading --files -g'
 
 export GITHUB_RELEASE_TOKEN='485bf276647e3993f34a7662e7b49cf47fffd691'
+
+alias sv='nvim -u ~/.SpaceVim/vimrc'
+
+[ -s "$HOME/.jabba/jabba.sh" ] && source "$HOME/.jabba/jabba.sh"
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"

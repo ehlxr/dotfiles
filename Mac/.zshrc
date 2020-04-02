@@ -13,7 +13,7 @@ export PATH=$PATH:/Users/ehlxr/works/jmeter/bin
 
 # export JAVA_6_HOME=$(/usr/libexec/java_home -v 1.6)
 export JAVA_7_HOME=$(/usr/libexec/java_home -v 1.7)
-export JAVA_8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home
+export JAVA_8_HOME=$(/usr/libexec/java_home -v 1.8)
 export JAVA_9_HOME=$(/usr/libexec/java_home -v 9)
 export JAVA_10_HOME=$(/usr/libexec/java_home -v 10)
 # OpenJDK
@@ -179,5 +179,14 @@ alias sv='nvim -u ~/.SpaceVim/vimrc'
 [ -s "$HOME/.jabba/jabba.sh" ] && source "$HOME/.jabba/jabba.sh"
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+# export PATH="$HOME/.jenv/bin:$PATH"
+# eval "$(jenv init -)"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# export SDKMAN_DIR="/Users/ehlxr/.sdkman"
+# [[ -s "/Users/ehlxr/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/ehlxr/.sdkman/bin/sdkman-init.sh"
+
+# 切换 maven 配置文件
+function mc(){
+    ln -sfv ~/.m2/$1-settings.xml ~/.m2/settings.xml
+}

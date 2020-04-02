@@ -86,7 +86,7 @@
                 <!-- <sonar.jdbc.url>jdbc:mysql://10.39.1.29:3306/sonarqube</sonar.jdbc.url>
                 <sonar.jdbc.username>sonarqube</sonar.jdbc.username>
                 <sonar.jdbc.password>sonarqube</sonar.jdbc.password> -->
-                <sonar.host.url>http://10.39.1.29:9000</sonar.host.url>
+                <!-- <sonar.host.url>http://10.39.1.29:9000</sonar.host.url> -->
 
                 <!-- <sonar.jdbc.url>jdbc:mysql://sonar-mysql-ceres-dev.opaas.enncloud.cn:19078/sonarqube</sonar.jdbc.url>
                 <sonar.jdbc.username>sonar</sonar.jdbc.username>

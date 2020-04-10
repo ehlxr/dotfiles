@@ -1,9 +1,3 @@
-# export GOROOT=/usr/local/go
-export GOROOT_BOOTSTRAP=/usr/local/go
-export GOROOT=/usr/local/opt/go/libexec
-export GOPATH=/Users/ehlxr/WorkSpaces/Go
-export GOBIN=$GOPATH/bin
-
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH=$PATH:$GOBIN
 export PATH=$PATH:/Users/ehlxr/.gem/bin
@@ -130,22 +124,25 @@ export PKG_CONFIG_PATH="/usr/local/opt/qt/lib/pkgconfig"
 transfer() {
     curl --progress-bar --upload-file "$1" https://transfer.sh/$(basename $1) | tee /dev/null;
 }
-
 alias tsf=transfer
 
-unalias gg
-
-alias gg="go get -v -u $1"
-alias ggf="GO111MODULE=off go get -v -u $1"
-
 export GO111MODULE=on
-# export GOPROXY=https://goproxy.io
-# export GOPROXY=https://mod.gokit.info
-# export GOPROXY=https://goproxy.ehlxr.top,direct
-# export GOPROXY=https://gocenter.io
 export GOPROXY=https://goproxy.cn,direct
 # export GOPROXY=https://mirrors.aliyun.com/goproxy,direct
 
+export GOROOT_BOOTSTRAP=/usr/local/go
+export GOROOT=/usr/local/opt/go/libexec
+export GOPATH=/Users/ehlxr/WorkSpaces/Go
+export GOBIN=$GOPATH/bin
+
+function gvmo(){
+    # 会 unset GOPATH 等环境变量
+    [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+}
+
+unalias gg
+alias gg="go get -v -u $1"
+alias ggf="export GO111MODULE=off; go get -v -u $1"
 
 function etcdkeeper(){
     cd /usr/local/opt/etcdkeeper/ && ./etcdkeeper $@
@@ -177,7 +174,6 @@ export GITHUB_RELEASE_TOKEN='485bf276647e3993f34a7662e7b49cf47fffd691'
 alias sv='nvim -u ~/.SpaceVim/vimrc'
 
 [ -s "$HOME/.jabba/jabba.sh" ] && source "$HOME/.jabba/jabba.sh"
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 # export PATH="$HOME/.jenv/bin:$PATH"
 # eval "$(jenv init -)"

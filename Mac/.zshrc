@@ -166,6 +166,7 @@ function zkvs(){
 
 alias rg='rg --no-heading'
 alias rgf='rg --no-heading --files -g'
+alias fd='fd -HI'
 
 export GITHUB_RELEASE_TOKEN='485bf276647e3993f34a7662e7b49cf47fffd691'
 

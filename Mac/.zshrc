@@ -130,15 +130,13 @@ export GO111MODULE=on
 export GOPROXY=https://goproxy.cn,direct
 # export GOPROXY=https://mirrors.aliyun.com/goproxy,direct
 
-export GOROOT_BOOTSTRAP=/usr/local/go
+# export GOROOT_BOOTSTRAP=/usr/local/go
 export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=/Users/ehlxr/WorkSpaces/Go
 export GOBIN=$GOPATH/bin
 
-function gvmo(){
-    # 会 unset GOPATH 等环境变量
-    [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-}
+# 会 unset GOPATH 等环境变量
+# [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 unalias gg
 alias gg="go get -v -u $1"

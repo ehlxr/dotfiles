@@ -134,6 +134,7 @@ export GOPROXY=https://goproxy.cn,direct
 export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=/Users/ehlxr/WorkSpaces/Go
 export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
 
 # 会 unset GOPATH 等环境变量
 # [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"

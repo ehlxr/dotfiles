@@ -84,12 +84,12 @@
     <profiles>
         <profile>
             <!-- profile 的唯一标识 -->
-            <id>test</id>
+            <id>default</id>
             <!-- 自动触发 profile 的条件逻辑。也可通过 activeProfile 元素以及使用 -P 标记激活（如：mvn clean install -P test）
                 在 maven 工程的 pom.xml 所在目录下执行 mvn help:active-profiles 命令可以查看生效的 profile -->
             <activation>
                 <!-- 默认是否激活 -->
-                <activeByDefault>false</activeByDefault>
+                <activeByDefault>true</activeByDefault>
                 <!-- 当匹配的 jdk 被检测到，profile 被激活。例如：1.4 激活 JDK1.4、1.4.0_2，而 !1.4 激活所有版本不是以 1.4 开头的 JDK -->
                 <jdk>1.8</jdk>
                 <!-- 当匹配的操作系统属性被检测到，profile 被激活。os 元素可以定义一些操作系统相关的属性 -->
@@ -130,6 +130,9 @@
             <properties>
                 <!-- 如果该 profile 被激活，则可以在 pom.xml 中使用 ${user.install} -->
                 <user.install>${user.home}/our-project</user.install>
+                <maven.compiler.source>1.8</maven.compiler.source>
+                <maven.compiler.target>1.8</maven.compiler.target>
+                <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
             </properties>
             <!-- 远程仓库列表。它是 maven 用来填充构建系统本地仓库所使用的一组远程仓库 -->
             <repositories>

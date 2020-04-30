@@ -31,6 +31,15 @@
     <profiles>
         <profile>
             <id>nexus</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+                <jdk>1.8</jdk>
+            </activation>
+            <properties>
+                <maven.compiler.source>1.8</maven.compiler.source>
+                <maven.compiler.target>1.8</maven.compiler.target>
+                <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+            </properties>
             <repositories>
                 <repository>
                     <id>nexus-releases</id>
@@ -80,7 +89,7 @@
         <profile>
             <id>sonar</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <!-- <sonar.jdbc.url>jdbc:mysql://10.39.1.29:3306/sonarqube</sonar.jdbc.url>

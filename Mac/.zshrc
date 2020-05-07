@@ -7,7 +7,7 @@ export PATH=$PATH:/Users/ehlxr/works/jmeter/bin
 
 # export JAVA_6_HOME=$(/usr/libexec/java_home -v 1.6)
 export JAVA_7_HOME=$(/usr/libexec/java_home -v 1.7)
-export JAVA_8_HOME=$(/usr/libexec/java_home -v 1.8)
+export JAVA_8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home
 export JAVA_9_HOME=$(/usr/libexec/java_home -v 9)
 export JAVA_10_HOME=$(/usr/libexec/java_home -v 10)
 # OpenJDK
@@ -102,10 +102,10 @@ function pf(){
     echo -e "已关闭代理"
 }
 function po() {
-    export http_proxy="http://127.0.0.1:1087"
+    export http_proxy="http://127.0.0.1:7890"
     export https_proxy=$http_proxy
 
-    export all_proxy=socks5://127.0.0.1:1086
+    export all_proxy=socks5://127.0.0.1:7891
 
     echo -e "已开启代理"
 }
@@ -186,3 +186,21 @@ alias sv='nvim -u ~/.SpaceVim/vimrc'
 function mc(){
     ln -sfv ~/.m2/$1-settings.xml ~/.m2/settings.xml
 }
+
+# 切换 python 版本(brew install python@2/brew install python)
+function pc(){
+    if [[ ! -n "$1" || "$1" == 3 ]]; then
+        ln -sfv /usr/local/bin/python3 /usr/local/bin/python
+        ln -sfv /usr/local/bin/pip3 /usr/local/bin/pip
+    elif [[ "$1" == 2 ]]; then
+        ln -sfv /usr/local/bin/python$1 /usr/local/bin/python
+        ln -sfv /usr/local/bin/pip$1 /usr/local/bin/pip
+    else
+        echo "不支持的版本号：$1"
+    fi
+}
+
+# 默认 python3
+# pc 3
+
+alias jd='sudo /Users/ehlxr/Sync/works/JD-GUI.app/Contents/MacOS/universalJavaApplicationStub.sh'

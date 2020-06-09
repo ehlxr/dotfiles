@@ -32,6 +32,7 @@ export ZSH=/Users/ehlxr/.oh-my-zsh
 # ZSH_THEME="ys"
 # ZSH_THEME="agnoster"
 ZSH_THEME="typewritten/typewritten"
+TYPEWRITTEN_CURSOR="beam"
 # TYPEWRITTEN_MULTILINE=true
 
 # ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -163,6 +164,11 @@ function phoenix(){
 
 function zkvs(){
     cd ~/WorkSpaces/zookeeper-visualizer/target && java -jar zookeeper-visualizer-jar-with-dependencies.jar
+}
+
+# ElasticSearch GUI
+function kaizen(){
+    cd /usr/local/opt/kaizen/ && sh kaizen.sh
 }
 
 alias rg='rg --no-heading'

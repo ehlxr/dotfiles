@@ -33,6 +33,7 @@ export ZSH=/Users/ehlxr/.oh-my-zsh
 # ZSH_THEME="agnoster"
 ZSH_THEME="typewritten/typewritten"
 TYPEWRITTEN_CURSOR="beam"
+WD_SKIP_EXPORT=1
 # TYPEWRITTEN_MULTILINE=true
 
 # ZSH_THEME="powerlevel10k/powerlevel10k"

@@ -31,10 +31,18 @@ export ZSH=/Users/ehlxr/.oh-my-zsh
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="ys"
 # ZSH_THEME="agnoster"
-ZSH_THEME="typewritten/typewritten"
-TYPEWRITTEN_CURSOR="beam"
-WD_SKIP_EXPORT=1
+
+# ZSH_THEME="typewritten/typewritten"
+# TYPEWRITTEN_CURSOR="beam"
+# WD_SKIP_EXPORT=1
 # TYPEWRITTEN_MULTILINE=true
+
+fpath+=$HOME/.zsh/typewritten
+autoload -U promptinit; promptinit
+prompt typewritten
+# TYPEWRITTEN_PROMPT_LAYOUT="pure"
+# TYPEWRITTEN_DISABLE_RETURN_CODE=true
+tw_current_directory="%F{$tw_current_directory_color}%~"
 
 # ZSH_THEME="powerlevel10k/powerlevel10k"
 # source ~/.powerlevel9k
@@ -118,7 +126,7 @@ alias git='LANG=en_GB git'
 
 # QT
 export PATH="/usr/local/opt/qt/bin:$PATH"
-export QT_DIR=/usr/local/Cellar/qt/5.14.0
+export QT_DIR=/usr/local/Cellar/qt/5.11.2
 export LDFLAGS="-L/usr/local/opt/qt/lib"
 export CPPFLAGS="-I/usr/local/opt/qt/include"
 export PKG_CONFIG_PATH="/usr/local/opt/qt/lib/pkgconfig"
@@ -146,7 +154,7 @@ alias gg="go get -v -u $1"
 alias ggf="export GO111MODULE=off; go get -v -u $1"
 
 function etcdkeeper(){
-    cd /usr/local/opt/etcdkeeper/ && ./etcdkeeper $@
+    cd ~/works/etcdkeeper/ && ./etcdkeeper $@
 }
 
 function kafka-manager(){
@@ -176,7 +184,7 @@ alias rg='rg --no-heading'
 alias rgf='rg --no-heading --files -g'
 alias fd='fd -HI'
 
-export GITHUB_RELEASE_TOKEN='485bf276647e3993f34a7662e7b49cf47fffd691'
+export GITHUB_RELEASE_TOKEN='9f569f771108eeb1c354931367e1e83ce719ceb0'
 
 alias sv='nvim -u ~/.SpaceVim/vimrc'
 
@@ -211,3 +219,16 @@ function pc(){
 # pc 3
 
 alias jd='sudo /Users/ehlxr/Sync/works/JD-GUI.app/Contents/MacOS/universalJavaApplicationStub.sh'
+
+export PUB_HOSTED_URL=https://pub.flutter-io.cn
+export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+
+export PATH="$PATH:/Users/ehlxr/WorkSpaces/flutter/bin"
+
+export ANDROID_HOME="/Users/ehlxr/Library/Android/sdk"
+export PATH="${PATH}:$ANDROID_HOME/emulator:"
+
+# 配置 kubectl 默认命名空间
+function kn(){
+    kubectl config set-context --current --namespace=lk-dn-svr-$1
+}

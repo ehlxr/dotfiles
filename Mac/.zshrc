@@ -37,6 +37,7 @@ export ZSH=/Users/ehlxr/.oh-my-zsh
 # WD_SKIP_EXPORT=1
 # TYPEWRITTEN_MULTILINE=true
 
+export TYPEWRITTEN_COLOR_MAPPINGS="primary:cyan"
 fpath+=$HOME/.zsh/typewritten
 autoload -U promptinit; promptinit
 prompt typewritten

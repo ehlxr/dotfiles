@@ -49,6 +49,8 @@ export ZSH=/Users/ehlxr/.oh-my-zsh
 # WD_SKIP_EXPORT=1
 # TYPEWRITTEN_MULTILINE=true
 
+# mkdir -p "$HOME/.zsh"
+# git clone https://github.com/reobin/typewritten.git "$HOME/.zsh/typewritten"
 export TYPEWRITTEN_COLOR_MAPPINGS="primary:cyan"
 fpath+=$HOME/.zsh/typewritten
 autoload -U promptinit; promptinit

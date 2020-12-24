@@ -199,7 +199,7 @@ alias rg='rg --no-heading'
 alias rgf='rg --no-heading --files -g'
 alias fd='fd -HI'
 
-export GITHUB_RELEASE_TOKEN='827b9cd90a6dd51da76515e9082bd2ad8e73c220'
+export GITHUB_RELEASE_TOKEN='xxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 
 alias sv='nvim -u ~/.SpaceVim/vimrc'
 
@@ -250,9 +250,9 @@ function pid(){
 }
 
 export BORG_REPO=root@oracle1:/root/BorgBackup
-export BORG_PASSPHRASE='1014166453'
+export BORG_PASSPHRASE='xxxxxxx'
 
-export TELEGRAM_TOKEN='1451670578:AAGUZqG-_6wyGjNk06JWl8C8aEHKvdGyPX4'
+export TELEGRAM_TOKEN='xxx:xxx-xxxxxxxx'
 alias pd='sudo -b /Applications/Parallels\ Desktop.app/Contents/MacOS/prl_client_app'
 
 # base64 编码

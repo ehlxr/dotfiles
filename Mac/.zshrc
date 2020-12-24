@@ -5,26 +5,38 @@ export PATH=$PATH:/Users/ehlxr/works/bin
 export PATH=$PATH:/Users/ehlxr/.cargo/bin
 export PATH=$PATH:/Users/ehlxr/works/jmeter/bin
 
+# Java Version Manager
+[ -s "$HOME/.jabba/jabba.sh" ] && source "$HOME/.jabba/jabba.sh"
+
+# export PATH="$HOME/.jenv/bin:$PATH"
+# eval "$(jenv init -)"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# export SDKMAN_DIR="/Users/ehlxr/.sdkman"
+# [[ -s "/Users/ehlxr/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/ehlxr/.sdkman/bin/sdkman-init.sh"
+
 # export JAVA_6_HOME=$(/usr/libexec/java_home -v 1.6)
-export JAVA_7_HOME=$(/usr/libexec/java_home -v 1.7)
-export JAVA_8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home
-export JAVA_9_HOME=$(/usr/libexec/java_home -v 9)
-export JAVA_10_HOME=$(/usr/libexec/java_home -v 10)
+# export JAVA_7_HOME=$(/usr/libexec/java_home -v 1.7)
+export JAVA_8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home
+# export JAVA_9_HOME=$(/usr/libexec/java_home -v 9)
+# export JAVA_10_HOME=$(/usr/libexec/java_home -v 10)
 # OpenJDK
-export OPENJDK_8_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
-export OPENJDK_12_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-12.0.1.jdk/Contents/Home
+# export OPENJDK_8_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+# export OPENJDK_12_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-12.0.1.jdk/Contents/Home
+export OPENJDK_8_HOME=$(jabba which adopt@1.8.0-272)/Contents/Home
 
 # 默认 JDK 8
-export JAVA_HOME=$JAVA_8_HOME
+export JAVA_HOME=$OPENJDK_8_HOME
 
 # alias 命令动态切换 JDK 版本
 # alias jdk6="export JAVA_HOME=$JAVA_6_HOME"
-alias jdk7="export JAVA_HOME=$JAVA_7_HOME"
+# alias jdk7="export JAVA_HOME=$JAVA_7_HOME"
 alias jdk8="export JAVA_HOME=$JAVA_8_HOME"
-alias jdk9="export JAVA_HOME=$JAVA_9_HOME"
-alias jdk10="export JAVA_HOME=$JAVA_10_HOME"
+# alias jdk9="export JAVA_HOME=$JAVA_9_HOME"
+# alias jdk10="export JAVA_HOME=$JAVA_10_HOME"
+# alias openjdk8="export JAVA_HOME=$OPENJDK_8_HOME"
+# alias openjdk12="export JAVA_HOME=$OPENJDK_12_HOME"
 alias openjdk8="export JAVA_HOME=$OPENJDK_8_HOME"
-alias openjdk12="export JAVA_HOME=$OPENJDK_12_HOME"
 
 export ZSH=/Users/ehlxr/.oh-my-zsh
 
@@ -44,6 +56,7 @@ prompt typewritten
 # TYPEWRITTEN_PROMPT_LAYOUT="pure"
 # TYPEWRITTEN_DISABLE_RETURN_CODE=true
 tw_current_directory="%F{$tw_current_directory_color}%~"
+TYPEWRITTEN_CURSOR="beam"
 
 # ZSH_THEME="powerlevel10k/powerlevel10k"
 # source ~/.powerlevel9k
@@ -76,6 +89,7 @@ alias brc='brew cask'
 alias bl='brew list'
 alias di='docker images'
 alias dp='docker ps -a'
+alias ds='docker stats'
 alias dm='docker-machine'
 alias vg='vagrant'
 alias t='tmux'
@@ -185,18 +199,9 @@ alias rg='rg --no-heading'
 alias rgf='rg --no-heading --files -g'
 alias fd='fd -HI'
 
-export GITHUB_RELEASE_TOKEN='9f569f771108eeb1c354931367e1e83ce719ceb0'
+export GITHUB_RELEASE_TOKEN='827b9cd90a6dd51da76515e9082bd2ad8e73c220'
 
 alias sv='nvim -u ~/.SpaceVim/vimrc'
-
-[ -s "$HOME/.jabba/jabba.sh" ] && source "$HOME/.jabba/jabba.sh"
-
-# export PATH="$HOME/.jenv/bin:$PATH"
-# eval "$(jenv init -)"
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-# export SDKMAN_DIR="/Users/ehlxr/.sdkman"
-# [[ -s "/Users/ehlxr/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/ehlxr/.sdkman/bin/sdkman-init.sh"
 
 # 切换 maven 配置文件
 function mc(){
@@ -233,3 +238,30 @@ export PATH="${PATH}:$ANDROID_HOME/emulator:"
 function kn(){
     kubectl config set-context --current --namespace=lk-dn-svr-$1
 }
+
+alias kp=kube-prompt
+
+alias npm=cnpm
+alias rc=rclone
+
+# 查询 PID
+function pid(){
+    ps x | grep $1 | grep -v grep | awk '{print $1}'
+}
+
+export BORG_REPO=root@oracle1:/root/BorgBackup
+export BORG_PASSPHRASE='1014166453'
+
+export TELEGRAM_TOKEN='1451670578:AAGUZqG-_6wyGjNk06JWl8C8aEHKvdGyPX4'
+alias pd='sudo -b /Applications/Parallels\ Desktop.app/Contents/MacOS/prl_client_app'
+
+# base64 编码
+function b64(){
+    echo $1 | base64
+}
+# base64 解码
+function bd64(){
+    echo $1 | base64 -D
+}
+
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles

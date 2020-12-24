@@ -57,7 +57,8 @@ autoload -U promptinit; promptinit
 prompt typewritten
 # TYPEWRITTEN_PROMPT_LAYOUT="pure"
 # TYPEWRITTEN_DISABLE_RETURN_CODE=true
-tw_current_directory="%F{$tw_current_directory_color}%~"
+# tw_current_directory="%F{$tw_current_directory_color}%~"
+TYPEWRITTEN_RELATIVE_PATH="home"
 TYPEWRITTEN_CURSOR="beam"
 
 # ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -132,7 +133,7 @@ function po() {
     export http_proxy="http://127.0.0.1:7890"
     export https_proxy=$http_proxy
 
-    export all_proxy=socks5://127.0.0.1:7891
+    export all_proxy=socks5://127.0.0.1:7890
 
     echo -e "已开启代理"
 }

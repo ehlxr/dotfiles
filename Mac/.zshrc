@@ -65,7 +65,7 @@ TYPEWRITTEN_CURSOR="beam"
 # source ~/.powerlevel9k
 
 # plugins=(git wd autojump sublime sudo zsh-syntax-highlighting zsh-autosuggestions extract history-substring-search docker docker-compose docker-machine)
-plugins=(git wd sudo zsh-syntax-highlighting zsh-autosuggestions history-substring-search docker docker-compose docker-machine)
+plugins=(git wd sudo zsh-syntax-highlighting zsh-autosuggestions history-substring-search docker docker-compose docker-machine kubectl)
 
 source $ZSH/oh-my-zsh.sh
 

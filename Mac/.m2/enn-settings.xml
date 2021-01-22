@@ -18,12 +18,12 @@
     <mirrors>
         <mirror>
             <id>nexus-releases</id>
-            <mirrorOf>*</mirrorOf>
+            <mirrorOf>*,!github</mirrorOf>
             <url>http://maven.enncloud.cn/content/groups/public/</url>
         </mirror>
         <mirror>
             <id>nexus-snapshots</id>
-            <mirrorOf>*</mirrorOf>
+            <mirrorOf>*,!github</mirrorOf>
             <url>http://maven.enncloud.cn/content/repositories/snapshots/</url>
         </mirror>
     </mirrors>

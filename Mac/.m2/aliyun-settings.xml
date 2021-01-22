@@ -40,6 +40,13 @@
             <!-- <directoryPermissions>775</directoryPermissions> -->
         <!-- </server> -->
     <!-- </servers> -->
+    <!-- <servers>
+        <server>
+            <id>github</id>
+            <username>ehlxr</username>
+            <password>${env.GITHUB_MVN_TOKEN}</password>
+        </server>
+    </servers> -->
 
     <!-- 下载镜像列表 -->
     <mirrors>
@@ -49,7 +56,7 @@
             <id>aliyunmaven</id>
             <!-- 被镜像的服务器的 id。如果我们要设置了一个 maven 中央仓库（http://repo.maven.apache.org/maven2/）的镜像，就需要将该元素设置成 central。
                 可以使用 * 表示任意远程库。例如：external:* 表示任何不在 localhost 和文件系统中的远程库，r1,r2 表示 r1 库或者 r2 库，*,!r1 表示除了 r1 库之外的任何远程库 -->
-            <mirrorOf>*</mirrorOf>
+            <mirrorOf>*,!github</mirrorOf>
             <!-- 镜像名称 -->
             <name>阿里云公共仓库</name>
             <!-- 镜像的 URL -->
@@ -135,36 +142,36 @@
                 <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
             </properties>
             <!-- 远程仓库列表。它是 maven 用来填充构建系统本地仓库所使用的一组远程仓库 -->
-            <repositories>
+            <!-- <repositories> -->
                 <!--包含需要连接到远程仓库的信息 -->
-                <repository>
+                <!-- <repository> -->
                     <!-- 远程仓库唯一标识 -->
-                    <id>codehausSnapshots</id>
+                    <!-- <id>codehausSnapshots</id> -->
                     <!-- 远程仓库名称 -->
-                    <name>Codehaus Snapshots</name>
+                    <!-- <name>Codehaus Snapshots</name> -->
                     <!-- 如何处理远程仓库里 releases 的下载 -->
-                    <releases>
+                    <!-- <releases> -->
                         <!-- 是否开启 -->
-                        <enabled>false</enabled>
+                        <!-- <enabled>false</enabled> -->
                         <!-- 该元素指定更新发生的频率。maven 会比较本地 pom.xml 和远程 pom.xml 的时间戳。
                             这里的选项是：always（一直），daily（默认，每日），interval：X（这里 X 是以分钟为单位的时间间隔），或者 never（从不）。 -->
-                        <updatePolicy>always</updatePolicy>
+                        <!-- <updatePolicy>always</updatePolicy> -->
                         <!-- 当 maven 验证构件校验文件失败时该怎么做：ignore（忽略），fail（失败），或者 warn（警告）-->
-                        <checksumPolicy>warn</checksumPolicy>
-                    </releases>
+                        <!-- <checksumPolicy>warn</checksumPolicy> -->
+                    <!-- </releases> -->
                     <!-- 如何处理远程仓库里快照版本的下载。有了 releases 和 snapshots 这两组配置，pom.xml 就可以在每个单独的仓库中，为每种类型的构件采取不同的策略。
                         例如：可能有人会决定只为开发目的开启对快照版本下载的支持 -->
-                    <snapshots>
-                        <enabled/>
-                        <updatePolicy/>
-                        <checksumPolicy/>
-                    </snapshots>
+                    <!-- <snapshots> -->
+                        <!-- <enabled/> -->
+                        <!-- <updatePolicy/> -->
+                        <!-- <checksumPolicy/> -->
+                    <!-- </snapshots> -->
                     <!-- 远程仓库 URL -->
-                    <url>http://snapshots.maven.codehaus.org/maven2</url>
+                    <!-- <url>http://snapshots.maven.codehaus.org/maven2</url> -->
                     <!-- 用于定位和排序构件的仓库布局类型。可以是 default（默认）或者 legacy（遗留）-->
-                    <layout>default</layout>
-                </repository>
-            </repositories>
+                    <!-- <layout>default</layout> -->
+                <!-- </repository> -->
+            <!-- </repositories> -->
             <!-- 插件的远程仓库列表。和 repositories 类似，repositories 管理 jar 包依赖的仓库，pluginRepositories 则是管理插件的仓库 -->
             <!-- <pluginRepositories> -->
                 <!-- 每个 pluginRepository 元素指定一个 maven 可以用来寻找新插件的远程地址 -->
